@@ -20,8 +20,8 @@ Divisible entre 5, en lugar de Fizz devuelve Bu.
 4. Para los números divisibles entre 5 deberá devolver el refresco que corresponda con la primera palabra que forma el refresco ej: (FizzBuzz) Buzz, (CocaCola) Cola, (EstrellaGalicia) Galicia.
 5. Si el número tiene decimales y su parte entera (truncada) es divisible entre 5, deberá entregar un refresco que contenga la mitad de la primera palabra del nombre del refresco ej: (FizzBuzz) Bu, (CocaCola) Co, (EstrellaGalicia) Gal.
 6. Para los números divisibles entre 3 y 5 deberá devolver el refresco que corresponda con las dos palabras que forman el refresco ej: (FizzBuzz) FizzBuzz, (CocaCola) CocaCola, (EstrellaGalicia) EstrellaGalicia.
-7. Si el número tiene decimales y su parte entera (truncada) es divisible entre 3 y 5, deberá entregar un refresco que contenga la mitad de la segunda palabra  junto con la mitad de la primera ej: (FizzBuzz) BuFi, (CocaCola) LaCo, (EstrellaGalicia) GalEstr.
+7. Si el número tiene decimales y su parte entera (truncada) es divisible entre 3 y 5, deberá entregar un refresco que contenga la mitad de la segunda palabra  junto con la mitad de la primera (Redondeando hacia abajo es decir si la palabra tiene 5 letras, cogerá las 2 primeras) ej: (FizzBuzz) BuFi, (CocaCola) LaCo, (EstrellaGalicia) GalEstr.
  firstName ej:
  { firstName: 'Estrella', secondName: 'Galicia', n: 15.3 } deberá retornar: 'GalEstr'
  { firstName: 'Fizz', secondName: 'Buzz', n: 15.3 }  deberá retornar: 'BuFi'
- { firstName: 'Coca', secondName: 'Cola', n: 15.3 } deberá retornar: 'LaCo'
+ { firstName: 'Coca', secondName: 'Cola', n: 15.3 } deberá retornar: 'CoCo'

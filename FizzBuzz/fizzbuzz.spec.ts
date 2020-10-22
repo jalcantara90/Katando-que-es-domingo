@@ -203,7 +203,7 @@ describe('RefrescosPaco Should', () => {
         secondName: 'Cola',
         n: 15.3,
       });
-      expect(drink).toBe('LaCo');
+      expect(drink).toBe('CoCo');
     });
   });
 });
@@ -214,7 +214,7 @@ type PacoDrink = { firstName: FirstName; secondName: SecondName; n: number };
 
 const capitalize = (s) => {
   if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1) // LaCo
+  return s.charAt(0).toUpperCase() + s.slice(1) // CoCo
 }
 
 let refrescosPaco = ({ firstName, secondName, n }: PacoDrink) => {
@@ -222,7 +222,9 @@ let refrescosPaco = ({ firstName, secondName, n }: PacoDrink) => {
   const input = Math.floor(n);
 
   if (!isInteger && input % 3 === 0 && input % 5 === 0) {
-    return capitalize(secondName.substring(2, secondName.length) + firstName.substring(0, 2))
+    const secondNameHalfLength = Math.floor(secondName.length / 2); 
+    const firstNameHalfLength = Math.floor(firstName.length / 2); 
+    return secondName.substring(0, secondNameHalfLength) + firstName.substring(0, firstNameHalfLength); 
   }
 
   if (n % 3 === 0 && n % 5 === 0) {
