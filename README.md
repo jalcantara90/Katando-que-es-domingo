@@ -3,9 +3,12 @@
 En este repositorio iremos subiendo los resultados y retos de las katas que iremos haciendo cada dos semanas.
 
 ##  **FizzBuzz** (Kata TDD) 18/10/20:
-  > Escribe un programa que devuelva los números del 0 al 100, 
-  sustituyendo los múltiplos de 3 por la palabra Fizz y, a su vez, los múltiplos de 5 por Buzz.
+> Escribe un programa que devuelva los números del 0 al 100, 
+sustituyendo los múltiplos de 3 por la palabra Fizz y, a su vez, los múltiplos de 5 por Buzz.
 Para los números que a su vez son múltiplos de 3 y 5, utiliza el combinado FizzBuzz.
+
+Para ejecutar el set de test de fizzbuzz lanzar:
+> nnpm run test:fizzbuzz
 
 ### ImproKata:
 > Si se recibe un número con decimales cuya parte entera es:
@@ -25,3 +28,23 @@ Divisible entre 5, en lugar de Fizz devuelve Bu.
  { firstName: 'Estrella', secondName: 'Galicia', n: 15.3 } deberá retornar: 'GalEstr'
  { firstName: 'Fizz', secondName: 'Buzz', n: 15.3 }  deberá retornar: 'BuFi'
  { firstName: 'Coca', secondName: 'Cola', n: 15.3 } deberá retornar: 'LaCo'
+
+##  **RomanNumerals** (Kata TDD) 1/11/20:
+> Se precisa crear un programa que dado un número arábico devuelva su representación en número Romano..
+
+### Aplicar TPP (Transformation Priority Premise)
+* ({}–>null) no code at all->code that employs null
+* (null->constant)
+* (constant->constant+) a simple constant to a more complex constant
+* (constant->scalar) replacing a constant with a variable or an argument
+* (statement->statements) adding more unconditional statements.
+* (unconditional->if) splitting the execution path
+* (scalar->array)
+* (array->container)
+* (statement->recursion)
+* (if->while)
+* (expression->function) replacing an expression with a function or algorithm
+* (variable->assignment) replacing the value of a variable.
+
+Para ejecutar el set de test de Roman numerals lanzar:
+> npm run test:romannumbers
