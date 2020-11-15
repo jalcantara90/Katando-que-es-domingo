@@ -9,111 +9,49 @@
  * Nuestra empresa tiene diferentes tipos de refrescos, y se quiere aplicar la misma logica en las marcas FizzBuzz, CocaCola, EstrellaGalicia
  * Queda pendiente: Al recibir un número con décimales cuya parte entera sea divisible entre 3 y 5 deberá devolver:
  *  - Un string compuesto, por la mitad de carácteres empezando por secondName, seguido de la mitad de carácteres de firstName ej:
- *   { firstName: 'Estrella', secondName: 'Galicia', n: 15.3 } deberá retornar: 'GalEstr'
+ *   { firstName: 'Estrella', secondName: 'Galicia', n: 15.3 } deberá retornar: 'GaliEstr'
  *   { firstName: 'Fizz', secondName: 'Buzz', n: 15.3 }  deberá retornar: 'BuFi'
- *   { firstName: 'Coca', secondName: 'Cola', n: 15.3 } deberá retornar: 'LaCo'
+ *   { firstName: 'Coca', secondName: 'Cola', n: 15.3 } deberá retornar: 'CoCo'
  */
 
 type FizzBuzzResult = number | 'Fizz' | 'Fi' | 'Buzz' | 'FizzBuzz' | 'Error';
 type FizzBuzzTestType = [input: number, expected: FizzBuzzResult][];
 
 describe('RefrescosPaco Should', () => {
-  describe('Old FizzBuzz Should', () => {
-    it('Receive one and return one', () => {
-      const result = fizzBuzz(1);
-      expect(result).toBe(1);
-    });
-
-    it('Receive two and return two', () => {
-      const result = fizzBuzz(2);
-      expect(result).toBe(2);
-    });
-
-    it('Receive four and return four', () => {
-      const result = fizzBuzz(4);
-      expect(result).toBe(4);
-    });
-
-    it('Recieve three and return three', () => {
-      const result = fizzBuzz(3);
-      expect(result).toBe('Fizz');
-    });
-
-    it('Receive six and return Fizz', () => {
-      const result = fizzBuzz(6);
-      expect(result).toBe('Fizz');
-    });
-
-    it('Receive nine and return Fizz', () => {
-      const result = fizzBuzz(9);
-      expect(result).toBe('Fizz');
-    });
-
-    it('Receive five and return Buzz', () => {
-      const result = fizzBuzz(5);
-      expect(result).toBe('Buzz');
-    });
-
-    it('Receive ten and return Buzz', () => {
-      const result = fizzBuzz(10);
-      expect(result).toBe('Buzz');
-    });
-
-    it('Receive 25 and return Buzz', () => {
-      const result = fizzBuzz(25);
-      expect(result).toBe('Buzz');
-    });
-    it('Recieve 15 and return FizzBuzz', () => {
-      const result = fizzBuzz(15);
-      expect(result).toBe('FizzBuzz');
-    });
-    it('Recieve 30 and return FizzBuzz', () => {
-      const result = fizzBuzz(30);
-      expect(result).toBe('FizzBuzz');
-    });
-    it('Recieve 45 and return FizzBuzz', () => {
-      const result = fizzBuzz(45);
-      expect(result).toBe('FizzBuzz');
-    });
-    it('Recieve -1 and return Error', () => {
-      const result = fizzBuzz(-1);
-      expect(result).toBe('Error');
-    });
-    it('Receive > 100 and return Error', () => {
-      const result = fizzBuzz(101);
-      expect(result).toBe('Error');
-    });
-    it('Receive is 100.5 and return Error', () => {
-      const result = fizzBuzz(100.5);
-      expect(result).toBe('Error');
-    });
-    it('Receive 3.5 and return Fi', () => {
-      const result = fizzBuzz(3.5);
-      expect(result).toBe('Fi');
-    });
-    it('Recieve 6.9 and return Fi', () => {
-      const result = fizzBuzz(6.9);
-      expect(result).toBe('Fi');
-    });
-    it('Recieve 20.3 and return Bu', () => {
-      const result = fizzBuzz(20.3);
-      expect(result).toBe('Bu');
-    });
-    it('Recieve 15.3 and return FiBu', () => {
-      const result = fizzBuzz(15.3);
-      expect(result).toBe('BuFi');
-    });
-  });
 
   describe('EstrellaGalicia', () => {
-    it('Receive 15.3 and return CiaEstr', () => {
+    it('Receive EstrellaGalicia and 3 and return Estrella', () => {
+      const drink = refrescosPaco({
+        firstName: 'Estrella',
+        secondName: 'Galicia',
+        n: 3,
+      });
+      expect(drink).toBe('Estrella');
+    });
+    it('Receive EstrellaGalicia and 6.3 and return Estr', () => {
+      const drink = refrescosPaco({
+        firstName: 'Estrella',
+        secondName: 'Galicia',
+        n: 6.3,
+      });
+      expect(drink).toBe('Estr');
+    });
+    it('Receive EstrellaGalicia and 5.3 and return Gali', () => {
+      const drink = refrescosPaco({
+        firstName: 'Estrella',
+        secondName: 'Galicia',
+        n: 5.3,
+      });
+      expect(drink).toBe('Gali');
+    });
+    it('Receive 15.3 and return GaliEstr', () => {
       const drink = refrescosPaco({
         firstName: 'Estrella',
         secondName: 'Galicia',
         n: 15.3
       });
-  
-      expect(drink).toBe('GalEstr');
+
+      expect(drink).toBe('GaliEstr');
     })
   });
   describe('FizzBuzz', () => {
@@ -142,6 +80,22 @@ describe('RefrescosPaco Should', () => {
         n: 15,
       });
       expect(drink).toBe('FizzBuzz');
+    });
+    it('Recieve 15.3 return BuFi', () => {
+      const drink = refrescosPaco({
+        firstName: 'Fizz',
+        secondName: 'Buzz',
+        n: 15.3,
+      });
+      expect(drink).toBe('BuFi');
+    });
+    it('Recieve 25.2 return Bu', () => {
+      const drink = refrescosPaco({
+        firstName: 'Fizz',
+        secondName: 'Buzz',
+        n: 25.2,
+      });
+      expect(drink).toBe('Bu');
     });
   });
 
@@ -197,13 +151,14 @@ describe('RefrescosPaco Should', () => {
       });
       expect(drink).toBe('CocaCola');
     });
-    it('Receive 15.3 return LaCo', () => {
+    it('Receive 15.3 return CoCo', () => {
       const drink = refrescosPaco({
         firstName: 'Coca',
         secondName: 'Cola',
         n: 15.3,
       });
-      expect(drink).toBe('LaCo');
+      //debe ser CoCo ('Co'ca'Co'la) no LaCo ya que es FiBu ('Fi'zz'Bu'zz) no FiZz
+      expect(drink).toBe('CoCo');
     });
   });
 });
@@ -214,53 +169,32 @@ type PacoDrink = { firstName: FirstName; secondName: SecondName; n: number };
 
 const capitalize = (s) => {
   if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1) // LaCo
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+const halfWord = (s) => {
+  let wordHalf = Math.ceil(s.length / 2);
+  return s.substring(0, wordHalf);
 }
 
 let refrescosPaco = ({ firstName, secondName, n }: PacoDrink) => {
-  const isInteger = Number.isInteger(n);
-  const input = Math.floor(n);
 
-  if (!isInteger && input % 3 === 0 && input % 5 === 0) {
-    return capitalize(secondName.substring(2, secondName.length) + firstName.substring(0, 2))
-  }
-
-  if (n % 3 === 0 && n % 5 === 0) {
-    return firstName + secondName;
-  }
-
-  if (n % 3 === 0) {
-    return firstName;
-  }
-
-  if (n % 5 === 0) {
-    return secondName;
-  }
-
-  return n;
-};
-
-let fizzBuzz = (n: number) => {
   if (n < 0 || n > 100) {
     return 'Error';
   }
 
-  let res = '';
   const isInteger = Number.isInteger(n);
   const input = Math.floor(n);
   const isDivisiblethree = input % 3 === 0;
   const isDivisibleFive = input % 5 === 0;
+  const isDivThreeFive = isDivisiblethree && isDivisibleFive;
+  let res = '';
 
   if (isDivisiblethree) {
-    res = res + (!isInteger ? 'Fi' : 'Fizz');
+    isInteger ? res += firstName : res += capitalize(halfWord(isDivThreeFive ? secondName : firstName));
   }
 
   if (isDivisibleFive) {
-    res = res + (!isInteger ? 'Bu' : 'Buzz');
-  }
-
-  if (res === 'FiBu') {
-    return 'BuFi';
+    isInteger ? res += secondName : res += capitalize(halfWord(isDivThreeFive ? firstName : secondName));
   }
 
   return res || n;
