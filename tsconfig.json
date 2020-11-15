@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     // "types": []
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "target": "es6"
   }
 }

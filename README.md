@@ -48,3 +48,27 @@ Divisible entre 5, en lugar de Fizz devuelve Bu.
 
 Para ejecutar el set de test de Roman numerals lanzar:
 > npm run test:romannumbers
+
+##  **InventoryManager** (Kata TDD | Estructuras de datos | Herencia) 15/11/20:
+ > Se necesita crear clases que nos permitan crear bolsas.
+* Habrán dos tipos de bolsas:
+  - Mochila: Permitirá almacenar hasta 8 objetos.
+  - Bolsa: Permitirá almacenar un máximo de 4 objetos y seleccionar una categoría de forma que solo pueda almacena objetos de esa categoría.
+ * Todas las bolsas deberán ordenar los objetos alfabéticamente.
+ * Los diferentes tipos de bolsas deberán poder utilizarse de forma isomórfica.
+
+Para ejecutar el set de test de Inventory manager lanzar:
+> npm run test:inventory
+ 
+ ## **InventoryManager parte 2 (Kata TDD | Estructuras de datos | Herencia) 29/11/20:**
+ 
+ > Habrá que crear una clase que nos permita crear heroes que podrán llevar objetos:
+   - Al ser creado un nuevo heroe deberá inicializar el inventario vacío.
+   - Deberá tener un método que permita añadir nuevas bolsas.
+   - Necesitará un método que permita añadir un objeto al inventario en la primera bolsa que tenga huecos disponible.
+   - Se podrán añadir varios objetos a la vez.
+   - Cada vez que se añada un nuevo objeto se reordenarán los objetos en todas las bolsas.
+   - El heroe podrá llevar equipada una mochila y un máximo de 4 bolsas.
+
+Para ejecutar el set de test de Inventory manager lanzar:
+> npm run test:inventory

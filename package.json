@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:fizzbuzz": "jest ./FizzBuzz/ --watch",
-    "test:romannumbers": "jest ./RomanNumbers/ --watch"
+    "test:romannumbers": "jest ./RomanNumbers/ --watch",
+    "test:inventory": "jest ./InventoryManager --watch"
   },
   "author": "",
   "license": "ISC",
