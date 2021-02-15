@@ -197,13 +197,13 @@ describe('RefrescosPaco Should', () => {
       });
       expect(drink).toBe('CocaCola');
     });
-    it('Receive 15.3 return LaCo', () => {
+    it('Receive 15.3 return CoCo', () => {
       const drink = refrescosPaco({
         firstName: 'Coca',
         secondName: 'Cola',
         n: 15.3,
       });
-      expect(drink).toBe('LaCo');
+      expect(drink).toBe('CoCo');
     });
   });
 });
@@ -212,32 +212,34 @@ type FirstName = 'Fizz' | 'Coca' | 'Estrella';
 type SecondName = 'Buzz' | 'Cola' | 'Galicia';
 type PacoDrink = { firstName: FirstName; secondName: SecondName; n: number };
 
-const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1) // LaCo
-}
+const capitalize = (s: string) => {
+	if (!s) return '';
+	return s.charAt(0).toUpperCase() + s.slice(1); // LaCo
+};
+
+const getHalf = (s: string) => {
+	if (!s) return 0;
+	return Math.floor(s.length / 2);
+};
 
 let refrescosPaco = ({ firstName, secondName, n }: PacoDrink) => {
-  const isInteger = Number.isInteger(n);
-  const input = Math.floor(n);
+	const isInteger = Number.isInteger(n);
+	const input = Math.floor(n);
+	let refresco = '';
 
-  if (!isInteger && input % 3 === 0 && input % 5 === 0) {
-    return capitalize(secondName.substring(2, secondName.length) + firstName.substring(0, 2))
-  }
+	if (input % 3 === 0) {
+		refresco = !isInteger
+			? secondName.substring(0, getHalf(secondName))
+			: firstName;
+	}
 
-  if (n % 3 === 0 && n % 5 === 0) {
-    return firstName + secondName;
-  }
+	if (input % 5 === 0) {
+		refresco += !isInteger
+			? firstName.substring(0, getHalf(firstName))
+			: secondName;
+	}
 
-  if (n % 3 === 0) {
-    return firstName;
-  }
-
-  if (n % 5 === 0) {
-    return secondName;
-  }
-
-  return n;
+	return refresco || n;
 };
 
 let fizzBuzz = (n: number) => {
